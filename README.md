@@ -8,7 +8,7 @@
 az ad sp create-for-rbac --name="<ServicePrincipal name>" -- role="Contributor" --scopes="/subscriptions/<subscription Id>"
 ```
 
-# <a href="terraform/README.md">Terraform</a>
+# <a href="terraform">Terraform</a>
 
 
 # Github
