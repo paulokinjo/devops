@@ -5,6 +5,13 @@ terraform {
       version = "=2.46.0"
     }
   }
+
+  backend "azurerm" {
+    storage_account_name     = "kinstorageremotetf"
+    container_name           = "tfbackend"
+    key                      = "terraform.tfstate"
+    use_msi = true 
+  }
 }
 
 # Configure the Microsoft Azure Provider
