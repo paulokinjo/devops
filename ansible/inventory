@@ -1,0 +1,21 @@
+webserver1 ansible_ssh_pass=root
+webserver2 ansible_ssh_pass=root
+
+database1 ansible_ssh_pass=root
+database2 ansible_ssh_pass=root
+
+[webserver]
+webserver1
+webserver2
+
+[database]
+database1
+database2
+
+[dev]
+webserver1
+database1
+
+[qa]
+webserver2
+database2

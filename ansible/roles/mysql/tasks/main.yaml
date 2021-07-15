@@ -1,0 +1,26 @@
+---
+- name: Install the MySQL Server
+  apt:
+    pkg:
+      - mysql-server
+      - mysql-client
+      - python-mysqldb
+      - libmysqlclient-dev
+    state: present
+
+- name: start mysql service
+  service:
+    name: mysql
+    state: started
+
+- name: Update MySQL root password for all root accounts
+  no_log: true
+  mysql_user:    
+    name: root
+    priv: '*.*:ALL,GRANT'
+    password: "{{ mysql_password }}"
+    login_user: root
+    login_password: "{{ mysql_password }}"
+    state: present
+  with_items:
+    - localhost

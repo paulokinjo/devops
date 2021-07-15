@@ -2,3 +2,7 @@
 .terraform
 *.backup
 *.tfstate
+
+*.ssh/
+*.ansible/
+.vault_pass.txt

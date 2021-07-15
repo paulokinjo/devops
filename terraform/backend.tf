@@ -7,10 +7,10 @@ terraform {
   }
 
   backend "azurerm" {
-    storage_account_name     = "kinstorageremotetf"
-    container_name           = "tfbackend"
-    key                      = "terraform.tfstate"
-    use_msi = true 
+    storage_account_name = "kinstorageremotetf"
+    container_name       = "tfbackend"
+    key                  = "terraform.tfstate"
+    use_msi              = true
   }
 }
 

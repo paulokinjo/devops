@@ -5,11 +5,12 @@
 
 ## Creating Service Principal
 ```bash
-az ad sp create-for-rbac --name="<ServicePrincipal name>" -- role="Contributor" --scopes="/subscriptions/<subscription Id>"
+az ad sp create-for-rbac --name="<ServicePrincipal name>" --role="Contributor" --scopes="/subscriptions/<subscription Id>"
 ```
 
 # <a href="terraform">Terraform</a>
 
+# <a href="ansible">Ansible</a>
 
 # Github
 

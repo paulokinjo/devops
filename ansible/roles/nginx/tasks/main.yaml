@@ -1,0 +1,16 @@
+---
+- name: Install python-apt
+  apt: 
+    name: python-apt 
+    state: present 
+    update_cache: yes
+
+- name: Install and check nginx latest version
+  apt:
+    name: nginx
+    state: latest
+
+- name: Start nginx
+  service:
+    name: nginx
+    state: started
