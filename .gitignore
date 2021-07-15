@@ -6,3 +6,4 @@
 *.ssh/
 *.ansible/
 .vault_pass.txt
+.bash_history
