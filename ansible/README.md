@@ -88,10 +88,13 @@ ansible-playbook -i inventory playbook.yaml --vault-password-file .vault_pass.tx
 az ad sp create-for-rbac --name="<ServicePrincipal name>" --role="Contributor" --scopes="/subscriptions/<subscription Id>"
 ```
 
-export AZURE_SUBSCRIPTION_ID=<subscription_id>
-export AZURE_CLIENT_ID=<client ID>
-export AZURE_SECRET=<client Secret>
-export AZURE_TENANT=<tenant ID>
+> export AZURE_SUBSCRIPTION_ID=<subscription_id>
+
+> export AZURE_CLIENT_ID=<client ID>
+
+> export AZURE_SECRET=<client Secret>
+
+> export AZURE_TENANT=<tenant ID>
 
 # Requirements
 Install the Python Azure SDK on the machine that runs Ansible with the ```pip install azure``` command.

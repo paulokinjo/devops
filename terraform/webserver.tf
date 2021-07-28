@@ -19,6 +19,11 @@ resource "azurerm_network_interface" "webservernic" {
   }
 }
 
+data "azurerm_image" "customnginx" {
+  name                = "linuxWebAnsible-1.0.0"
+  resource_group_name = "rg_images"
+}
+
 resource "azurerm_virtual_machine" "webservervm" {
   name                  = "webserver"
   location              = var.location
@@ -26,11 +31,15 @@ resource "azurerm_virtual_machine" "webservervm" {
   vm_size               = "Standard_DS1_v2"
   network_interface_ids = [azurerm_network_interface.webservernic.id]
 
+  # storage_image_reference {
+  #   publisher = "Canonical"
+  #   offer     = "UbuntuServer"
+  #   sku       = "16.04-LTS"
+  #   version   = "latest"
+  # }
+
   storage_image_reference {
-    publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "16.04-LTS"
-    version   = "latest"
+    id = data.azurerm_image.customnginx.id
   }
 
   storage_os_disk {

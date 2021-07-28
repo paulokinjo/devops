@@ -8,7 +8,7 @@ terraform {
 
   backend "azurerm" {
     storage_account_name = "kinstorageremotetf"
-    container_name       = "tfbackend"
+    container_name       = "tfbackends"
     key                  = "terraform.tfstate"
     use_msi              = true
   }

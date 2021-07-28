@@ -1,27 +1,30 @@
 # Terraform
 
 ## Environments Configuration
-export ARM_SUBSCRIPTION_ID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+> export ARM_SUBSCRIPTION_ID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 
-export ARM_CLIENT_ID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+> export ARM_CLIENT_ID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 
-export ARM_CLIENT_SECRET=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+> export ARM_CLIENT_SECRET=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 
-export ARM_TENANT_ID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-
-export ARM_STORAGE_KEY=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-
-export ARM_ACCESS_KEY=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+> export ARM_TENANT_ID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 
 #### 1-Create resource group
+```bash
 az group create --name MyRgRemoteBackend --location westeurope
+```
 #### 2-Create storage account
-az storage account create --resource-group MyRgRemoteBackend --name
-storageremotetf --sku Standard_LRS --encryption-services blob
+```bash
+az storage account create --resource-group MyRgRemoteBackend --name kinstorageremotetf --sku Standard_LRS --encryption-services blob
+```
 ##### 3-Get storage account key
-ACCOUNT_KEY=$(az storage account keys list --resource-group MyRgRemoteBackend --account-name kinstorageremotetf --query [0].value -o tsv)
+```bash
+export ARM_ACCESS_KEY=$(az storage account keys list --resource-group MyRgRemoteBackend --account-name kinstorageremotetf --query [0].value -o tsv)
+```
 ##### 4-Create blob container
-az storage container create --name tfbackends --account-name storageremotetf --account-key $ACCOUNT_KEY
+```bash
+az storage container create --name tfbackends --account-name kinstorageremotetf --account-key $ARM_ACCESS_KEY
+```
 
 ## CI/CD Pipeline
 1. Retrieving the code from the SCM
